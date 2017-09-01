@@ -136,7 +136,6 @@ typedef struct nni_zt_node nni_zt_node;
 // This means we need to stick these on a global linked list, manage
 // them with a reference count, and uniquely identify them using the
 // homedir.
-
 struct nni_zt_node {
 	char          zn_path[NNG_MAXADDRLEN]; // ought to be sufficient
 	ZT_Node *     zn_znode;
