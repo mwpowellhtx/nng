@@ -123,28 +123,28 @@ nni_setopt_size(size_t *sp, const void *v, size_t sz, size_t minv, size_t maxv)
 }
 
 int
-nni_getopt_usec(const nni_duration *ptr, void *val, size_t *sizep)
+nni_getopt_usec(nni_duration u, void *val, size_t *sizep)
 {
-	size_t sz = sizeof(*ptr);
+	size_t sz = sizeof(u);
 
 	if (sz > *sizep) {
 		sz = *sizep;
 	}
-	*sizep = sizeof(*ptr);
-	memcpy(val, ptr, sz);
+	*sizep = sizeof(u);
+	memcpy(val, &u, sz);
 	return (0);
 }
 
 int
-nni_getopt_int(const int *ptr, void *val, size_t *sizep)
+nni_getopt_int(int i, void *val, size_t *sizep)
 {
-	size_t sz = sizeof(*ptr);
+	size_t sz = sizeof(i);
 
 	if (sz > *sizep) {
 		sz = *sizep;
 	}
-	*sizep = sizeof(*ptr);
-	memcpy(val, ptr, sz);
+	*sizep = sizeof(i);
+	memcpy(val, &i, sz);
 	return (0);
 }
 
@@ -174,15 +174,15 @@ nni_getopt_str(const char *ptr, void *val, size_t *sizep)
 }
 
 int
-nni_getopt_size(const size_t *ptr, void *val, size_t *sizep)
+nni_getopt_size(size_t u, void *val, size_t *sizep)
 {
-	size_t sz = sizeof(*ptr);
+	size_t sz = sizeof(u);
 
 	if (sz > *sizep) {
 		sz = *sizep;
 	}
-	*sizep = sizeof(*ptr);
-	memcpy(val, ptr, sz);
+	*sizep = sizeof(u);
+	memcpy(val, &u, sz);
 	return (0);
 }
 
